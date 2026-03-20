@@ -88,27 +88,28 @@ try {
      * 
     **/
 	
-	$sql = "INSERT INTO CLIENTE
+    $sql = "INSERT INTO cliente
         (Email, nTel, nome, cognome,
         ind_fatt_via, ind_fatt_civ,
         ind_fatt_cap, ind_fatt_comune,
         password, salt, FK_IDcomune)
-
-        VALUES
-        ('$_POST[email]',
-        '$_POST[nTel]',
-        '$_POST[nome]',
-        '$_POST[cognome]',
-        '$_POST[via]',
-        '$_POST[civ]',
-        '$_POST[cap]',
-        '$_POST[comune]',
-        '$saved_pwd',
-        '$salt',
-        '$_POST[idcomune]'
-        )";
-	echo "<br>SQL --> ". $sql;
-	$results = $conn->query($sql);
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([
+        $_POST['email'],
+        $_POST['nTel'],
+        $_POST['nome'],
+        $_POST['cognome'],
+        $_POST['via'],
+        $_POST['civ'],
+        $_POST['cap'],
+        $_POST['comune'],
+        $saved_pwd,
+        $salt,
+        $_POST['idcomune']
+    ]);
+    header("Location: pagPrincipale.php");
+    exit;
 	
 
 } catch (PDOException $e) {

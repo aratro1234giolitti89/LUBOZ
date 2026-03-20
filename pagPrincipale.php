@@ -35,6 +35,10 @@ Ristoranti
 Login
 </a>
 
+<a href="register.php" class="btn btn-outline-secondary me-2">
+Registrati
+</a>
+
 <a href="pagCarrello.php" class="btn btn-success">
 Carrello
 </a>
@@ -48,8 +52,7 @@ Carrello
 
 <div class="container">
 
-<div class="feature col"> <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3"> <svg class="bi" width="1em" height="1em" aria-hidden="true"><use xlink:href="#people-circle"></use></svg> </div> <h3 class="fs-2 text-body-emphasis">Featured title</h3> <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p> <a href="#" class="icon-link">
-Call to action
+<div class="feature col"> <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3"> <svg class="bi" width="1em" height="1em" aria-hidden="true"><use xlink:href="#people-circle"></use></svg> </div> <h3 class="fs-2 text-body-emphasis">DE FORC</h3> <p>Se hai voglia di un paio di sfiziosità, deliziati con i ristoranti più vicini a te</p> <a href="#" class="icon-link">
 <svg class="bi" aria-hidden="true"><use xlink:href="#chevron-right"></use></svg> </a> </div>
 
 <!-- BARRA DI RICERCA -->

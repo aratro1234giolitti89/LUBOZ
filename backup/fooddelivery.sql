@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 20, 2026 at 12:41 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Creato il: Mar 17, 2026 alle 17:54
+-- Versione del server: 10.4.32-MariaDB
+-- Versione PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `allergene`
+-- Struttura della tabella `allergene`
 --
 
 CREATE TABLE `allergene` (
@@ -36,7 +36,7 @@ CREATE TABLE `allergene` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `carta`
+-- Struttura della tabella `carta`
 --
 
 CREATE TABLE `carta` (
@@ -49,7 +49,7 @@ CREATE TABLE `carta` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cliente`
+-- Struttura della tabella `cliente`
 --
 
 CREATE TABLE `cliente` (
@@ -64,19 +64,12 @@ CREATE TABLE `cliente` (
   `password` varchar(64) NOT NULL,
   `salt` varchar(64) NOT NULL,
   `FK_IDcomune` int(4) UNSIGNED ZEROFILL NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `cliente`
---
-
-INSERT INTO `cliente` (`Email`, `nTel`, `nome`, `cognome`, `ind_fatt_via`, `ind_fatt_civ`, `ind_fatt_cap`, `ind_fatt_comune`, `password`, `salt`, `FK_IDcomune`) VALUES
-('prova@mail.com', '3333434567', 'Jannick', 'Sinner', 'Via Tennis', '12', 11100, 'AbuDabi', 'prova', 'a', 0001);
+) ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `comune`
+-- Struttura della tabella `comune`
 --
 
 CREATE TABLE `comune` (
@@ -85,7 +78,7 @@ CREATE TABLE `comune` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `comune`
+-- Dump dei dati per la tabella `comune`
 --
 
 INSERT INTO `comune` (`IDcomune`, `nome`) VALUES
@@ -96,7 +89,7 @@ INSERT INTO `comune` (`IDcomune`, `nome`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `indirizzo`
+-- Struttura della tabella `indirizzo`
 --
 
 CREATE TABLE `indirizzo` (
@@ -112,7 +105,7 @@ CREATE TABLE `indirizzo` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ingrediente`
+-- Struttura della tabella `ingrediente`
 --
 
 CREATE TABLE `ingrediente` (
@@ -123,7 +116,7 @@ CREATE TABLE `ingrediente` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ingrediente_allergene`
+-- Struttura della tabella `ingrediente_allergene`
 --
 
 CREATE TABLE `ingrediente_allergene` (
@@ -134,7 +127,7 @@ CREATE TABLE `ingrediente_allergene` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ingrediente_piatto`
+-- Struttura della tabella `ingrediente_piatto`
 --
 
 CREATE TABLE `ingrediente_piatto` (
@@ -146,7 +139,7 @@ CREATE TABLE `ingrediente_piatto` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orari_aperture`
+-- Struttura della tabella `orari_aperture`
 --
 
 CREATE TABLE `orari_aperture` (
@@ -154,12 +147,12 @@ CREATE TABLE `orari_aperture` (
   `FKIDristorante` int(2) UNSIGNED ZEROFILL NOT NULL,
   `orarioApertura` time NOT NULL,
   `orarioChiusura` time NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ordine`
+-- Struttura della tabella `ordine`
 --
 
 CREATE TABLE `ordine` (
@@ -174,7 +167,7 @@ CREATE TABLE `ordine` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ordine_promozione`
+-- Struttura della tabella `ordine_promozione`
 --
 
 CREATE TABLE `ordine_promozione` (
@@ -185,20 +178,20 @@ CREATE TABLE `ordine_promozione` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `piatto`
+-- Struttura della tabella `piatto`
 --
 
 CREATE TABLE `piatto` (
-  `nome` varchar(30) NOT NULL,
+  ` varchar(30) NOT NULL,
+  `FK_IDrnome` varchar(30) NOT NULL,
   `IDpiatto` int(4) UNSIGNED ZEROFILL NOT NULL,
   `prezzo` decimal(5,2) UNSIGNED NOT NULL,
   `disponibilita` tinyint(1) NOT NULL,
-  `image` varchar(30) NOT NULL,
-  `FK_IDristorante` int(2) UNSIGNED ZEROFILL DEFAULT NULL
+  `image`istorante` int(2) UNSIGNED ZEROFILL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `piatto`
+-- Dump dei dati per la tabella `piatto`
 --
 
 INSERT INTO `piatto` (`nome`, `IDpiatto`, `prezzo`, `disponibilita`, `image`, `FK_IDristorante`) VALUES
@@ -221,7 +214,7 @@ INSERT INTO `piatto` (`nome`, `IDpiatto`, `prezzo`, `disponibilita`, `image`, `F
 -- --------------------------------------------------------
 
 --
--- Table structure for table `piatto_ordine`
+-- Struttura della tabella `piatto_ordine`
 --
 
 CREATE TABLE `piatto_ordine` (
@@ -232,7 +225,7 @@ CREATE TABLE `piatto_ordine` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `promozione`
+-- Struttura della tabella `promozione`
 --
 
 CREATE TABLE `promozione` (
@@ -240,12 +233,12 @@ CREATE TABLE `promozione` (
   `dataInizio` date NOT NULL,
   `dataFine` date NOT NULL,
   `nome` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `promozione_piatto`
+-- Struttura della tabella `promozione_piatto`
 --
 
 CREATE TABLE `promozione_piatto` (
@@ -256,7 +249,7 @@ CREATE TABLE `promozione_piatto` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `recensione`
+-- Struttura della tabella `recensione`
 --
 
 CREATE TABLE `recensione` (
@@ -264,12 +257,12 @@ CREATE TABLE `recensione` (
   `descrizione` varchar(200) NOT NULL,
   `stelle` int(1) NOT NULL,
   `FK_IDordine` int(2) UNSIGNED ZEROFILL NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rider`
+-- Struttura della tabella `rider`
 --
 
 CREATE TABLE `rider` (
@@ -282,7 +275,7 @@ CREATE TABLE `rider` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rider_zona`
+-- Struttura della tabella `rider_zona`
 --
 
 CREATE TABLE `rider_zona` (
@@ -293,7 +286,7 @@ CREATE TABLE `rider_zona` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ristorante`
+-- Struttura della tabella `ristorante`
 --
 
 CREATE TABLE `ristorante` (
@@ -310,7 +303,7 @@ CREATE TABLE `ristorante` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `ristorante`
+-- Dump dei dati per la tabella `ristorante`
 --
 
 INSERT INTO `ristorante` (`IDristorante`, `nome`, `nTel`, `ind_fatt_via`, `ind_fatt_civ`, `ind_fatt_cap`, `ind_fatt_comune`, `img`, `descrizione`, `FK_IDcomune`) VALUES
@@ -321,7 +314,7 @@ INSERT INTO `ristorante` (`IDristorante`, `nome`, `nTel`, `ind_fatt_via`, `ind_f
 -- --------------------------------------------------------
 
 --
--- Table structure for table `zona`
+-- Struttura della tabella `zona`
 --
 
 CREATE TABLE `zona` (
@@ -332,7 +325,7 @@ CREATE TABLE `zona` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `zona_comune`
+-- Struttura della tabella `zona_comune`
 --
 
 CREATE TABLE `zona_comune` (
@@ -341,24 +334,24 @@ CREATE TABLE `zona_comune` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Indexes for dumped tables
+-- Indici per le tabelle scaricate
 --
 
 --
--- Indexes for table `allergene`
+-- Indici per le tabelle `allergene`
 --
 ALTER TABLE `allergene`
   ADD PRIMARY KEY (`IDallergene`);
 
 --
--- Indexes for table `carta`
+-- Indici per le tabelle `carta`
 --
 ALTER TABLE `carta`
   ADD PRIMARY KEY (`Ncarta`),
   ADD KEY `FKEmail` (`FKEmail`);
 
 --
--- Indexes for table `cliente`
+-- Indici per le tabelle `cliente`
 --
 ALTER TABLE `cliente`
   ADD PRIMARY KEY (`Email`),
@@ -366,13 +359,13 @@ ALTER TABLE `cliente`
   ADD KEY `FK_IDcomune` (`FK_IDcomune`);
 
 --
--- Indexes for table `comune`
+-- Indici per le tabelle `comune`
 --
 ALTER TABLE `comune`
   ADD PRIMARY KEY (`IDcomune`);
 
 --
--- Indexes for table `indirizzo`
+-- Indici per le tabelle `indirizzo`
 --
 ALTER TABLE `indirizzo`
   ADD PRIMARY KEY (`IDindirizzo`),
@@ -380,33 +373,33 @@ ALTER TABLE `indirizzo`
   ADD KEY `FK_IDcomune` (`FK_IDcomune`);
 
 --
--- Indexes for table `ingrediente`
+-- Indici per le tabelle `ingrediente`
 --
 ALTER TABLE `ingrediente`
   ADD PRIMARY KEY (`IDingrediente`);
 
 --
--- Indexes for table `ingrediente_allergene`
+-- Indici per le tabelle `ingrediente_allergene`
 --
 ALTER TABLE `ingrediente_allergene`
   ADD PRIMARY KEY (`FK_IDingrediente`,`FK_IDallergene`),
   ADD KEY `FK_IDallergene` (`FK_IDallergene`);
 
 --
--- Indexes for table `ingrediente_piatto`
+-- Indici per le tabelle `ingrediente_piatto`
 --
 ALTER TABLE `ingrediente_piatto`
   ADD PRIMARY KEY (`FK_IDingrediente`,`FK_IDpiatto`),
   ADD KEY `FK_IDpiatto` (`FK_IDpiatto`);
 
 --
--- Indexes for table `orari_aperture`
+-- Indici per le tabelle `orari_aperture`
 --
 ALTER TABLE `orari_aperture`
   ADD PRIMARY KEY (`IDgiorno`,`FKIDristorante`);
 
 --
--- Indexes for table `ordine`
+-- Indici per le tabelle `ordine`
 --
 ALTER TABLE `ordine`
   ADD PRIMARY KEY (`IDordine`),
@@ -414,61 +407,61 @@ ALTER TABLE `ordine`
   ADD KEY `FKIDindirizzo` (`FKIDindirizzo`);
 
 --
--- Indexes for table `ordine_promozione`
+-- Indici per le tabelle `ordine_promozione`
 --
 ALTER TABLE `ordine_promozione`
   ADD PRIMARY KEY (`FK_IDordine`,`FK_IDpromozione`),
   ADD KEY `FK_IDpromozione` (`FK_IDpromozione`);
 
 --
--- Indexes for table `piatto`
+-- Indici per le tabelle `piatto`
 --
 ALTER TABLE `piatto`
   ADD PRIMARY KEY (`IDpiatto`),
   ADD KEY `FK_IDristorante` (`FK_IDristorante`);
 
 --
--- Indexes for table `piatto_ordine`
+-- Indici per le tabelle `piatto_ordine`
 --
 ALTER TABLE `piatto_ordine`
   ADD PRIMARY KEY (`FK_IDpiatto`,`FK_IDordine`),
   ADD KEY `FK_IDordine` (`FK_IDordine`);
 
 --
--- Indexes for table `promozione`
+-- Indici per le tabelle `promozione`
 --
 ALTER TABLE `promozione`
   ADD PRIMARY KEY (`IDpromozione`);
 
 --
--- Indexes for table `promozione_piatto`
+-- Indici per le tabelle `promozione_piatto`
 --
 ALTER TABLE `promozione_piatto`
   ADD PRIMARY KEY (`FK_IDpromozione`,`FK_IDpiatto`),
   ADD KEY `FK_IDpiatto` (`FK_IDpiatto`);
 
 --
--- Indexes for table `recensione`
+-- Indici per le tabelle `recensione`
 --
 ALTER TABLE `recensione`
   ADD PRIMARY KEY (`IDrecensione`),
   ADD KEY `FK_IDordine` (`FK_IDordine`);
 
 --
--- Indexes for table `rider`
+-- Indici per le tabelle `rider`
 --
 ALTER TABLE `rider`
   ADD PRIMARY KEY (`CF`);
 
 --
--- Indexes for table `rider_zona`
+-- Indici per le tabelle `rider_zona`
 --
 ALTER TABLE `rider_zona`
   ADD PRIMARY KEY (`FK_CF`,`FK_IDzona`),
   ADD KEY `FK_IDzona` (`FK_IDzona`);
 
 --
--- Indexes for table `ristorante`
+-- Indici per le tabelle `ristorante`
 --
 ALTER TABLE `ristorante`
   ADD PRIMARY KEY (`IDristorante`),
@@ -476,180 +469,180 @@ ALTER TABLE `ristorante`
   ADD KEY `FK_IDcomune` (`FK_IDcomune`);
 
 --
--- Indexes for table `zona`
+-- Indici per le tabelle `zona`
 --
 ALTER TABLE `zona`
   ADD PRIMARY KEY (`IDzona`);
 
 --
--- Indexes for table `zona_comune`
+-- Indici per le tabelle `zona_comune`
 --
 ALTER TABLE `zona_comune`
   ADD PRIMARY KEY (`FK_IDzona`,`FK_IDcomune`),
   ADD KEY `FK_IDcomune` (`FK_IDcomune`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT per le tabelle scaricate
 --
 
 --
--- AUTO_INCREMENT for table `allergene`
+-- AUTO_INCREMENT per la tabella `allergene`
 --
 ALTER TABLE `allergene`
   MODIFY `IDallergene` int(2) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `carta`
+-- AUTO_INCREMENT per la tabella `carta`
 --
 ALTER TABLE `carta`
   MODIFY `Ncarta` int(16) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `comune`
+-- AUTO_INCREMENT per la tabella `comune`
 --
 ALTER TABLE `comune`
   MODIFY `IDcomune` int(4) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `indirizzo`
+-- AUTO_INCREMENT per la tabella `indirizzo`
 --
 ALTER TABLE `indirizzo`
   MODIFY `IDindirizzo` int(6) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `ingrediente`
+-- AUTO_INCREMENT per la tabella `ingrediente`
 --
 ALTER TABLE `ingrediente`
   MODIFY `IDingrediente` int(3) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `ordine`
+-- AUTO_INCREMENT per la tabella `ordine`
 --
 ALTER TABLE `ordine`
   MODIFY `IDordine` int(6) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `piatto`
+-- AUTO_INCREMENT per la tabella `piatto`
 --
 ALTER TABLE `piatto`
   MODIFY `IDpiatto` int(4) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `promozione`
+-- AUTO_INCREMENT per la tabella `promozione`
 --
 ALTER TABLE `promozione`
   MODIFY `IDpromozione` int(2) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `recensione`
+-- AUTO_INCREMENT per la tabella `recensione`
 --
 ALTER TABLE `recensione`
   MODIFY `IDrecensione` int(2) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `ristorante`
+-- AUTO_INCREMENT per la tabella `ristorante`
 --
 ALTER TABLE `ristorante`
   MODIFY `IDristorante` int(2) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `zona`
+-- AUTO_INCREMENT per la tabella `zona`
 --
 ALTER TABLE `zona`
   MODIFY `IDzona` int(2) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT;
 
 --
--- Constraints for dumped tables
+-- Limiti per le tabelle scaricate
 --
 
 --
--- Constraints for table `carta`
+-- Limiti per la tabella `carta`
 --
 ALTER TABLE `carta`
   ADD CONSTRAINT `carta_ibfk_1` FOREIGN KEY (`FKEmail`) REFERENCES `cliente` (`Email`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `cliente`
+-- Limiti per la tabella `cliente`
 --
 ALTER TABLE `cliente`
   ADD CONSTRAINT `cliente_ibfk_1` FOREIGN KEY (`FK_IDcomune`) REFERENCES `comune` (`IDcomune`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `indirizzo`
+-- Limiti per la tabella `indirizzo`
 --
 ALTER TABLE `indirizzo`
   ADD CONSTRAINT `indirizzo_ibfk_1` FOREIGN KEY (`FK_Email`) REFERENCES `cliente` (`Email`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `indirizzo_ibfk_2` FOREIGN KEY (`FK_IDcomune`) REFERENCES `comune` (`IDcomune`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `ingrediente_allergene`
+-- Limiti per la tabella `ingrediente_allergene`
 --
 ALTER TABLE `ingrediente_allergene`
   ADD CONSTRAINT `ingrediente_allergene_ibfk_1` FOREIGN KEY (`FK_IDingrediente`) REFERENCES `ingrediente` (`IDingrediente`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `ingrediente_allergene_ibfk_2` FOREIGN KEY (`FK_IDallergene`) REFERENCES `allergene` (`IDallergene`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `ingrediente_piatto`
+-- Limiti per la tabella `ingrediente_piatto`
 --
 ALTER TABLE `ingrediente_piatto`
   ADD CONSTRAINT `ingrediente_piatto_ibfk_1` FOREIGN KEY (`FK_IDingrediente`) REFERENCES `ingrediente` (`IDingrediente`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `ingrediente_piatto_ibfk_2` FOREIGN KEY (`FK_IDpiatto`) REFERENCES `piatto` (`IDpiatto`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `ordine`
+-- Limiti per la tabella `ordine`
 --
 ALTER TABLE `ordine`
   ADD CONSTRAINT `ordine_ibfk_1` FOREIGN KEY (`FKEmail`) REFERENCES `cliente` (`Email`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `ordine_ibfk_2` FOREIGN KEY (`FKIDindirizzo`) REFERENCES `indirizzo` (`IDindirizzo`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `ordine_promozione`
+-- Limiti per la tabella `ordine_promozione`
 --
 ALTER TABLE `ordine_promozione`
   ADD CONSTRAINT `ordine_promozione_ibfk_1` FOREIGN KEY (`FK_IDordine`) REFERENCES `ordine` (`IDordine`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `ordine_promozione_ibfk_2` FOREIGN KEY (`FK_IDpromozione`) REFERENCES `promozione` (`IDpromozione`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `piatto`
+-- Limiti per la tabella `piatto`
 --
 ALTER TABLE `piatto`
   ADD CONSTRAINT `piatto_ibfk_1` FOREIGN KEY (`FK_IDristorante`) REFERENCES `ristorante` (`IDristorante`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `piatto_ordine`
+-- Limiti per la tabella `piatto_ordine`
 --
 ALTER TABLE `piatto_ordine`
   ADD CONSTRAINT `piatto_ordine_ibfk_1` FOREIGN KEY (`FK_IDpiatto`) REFERENCES `piatto` (`IDpiatto`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `piatto_ordine_ibfk_2` FOREIGN KEY (`FK_IDordine`) REFERENCES `ordine` (`IDordine`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `promozione_piatto`
+-- Limiti per la tabella `promozione_piatto`
 --
 ALTER TABLE `promozione_piatto`
   ADD CONSTRAINT `promozione_piatto_ibfk_1` FOREIGN KEY (`FK_IDpromozione`) REFERENCES `promozione` (`IDpromozione`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `promozione_piatto_ibfk_2` FOREIGN KEY (`FK_IDpiatto`) REFERENCES `piatto` (`IDpiatto`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `recensione`
+-- Limiti per la tabella `recensione`
 --
 ALTER TABLE `recensione`
   ADD CONSTRAINT `recensione_ibfk_1` FOREIGN KEY (`FK_IDordine`) REFERENCES `ordine` (`IDordine`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `rider_zona`
+-- Limiti per la tabella `rider_zona`
 --
 ALTER TABLE `rider_zona`
   ADD CONSTRAINT `rider_zona_ibfk_1` FOREIGN KEY (`FK_CF`) REFERENCES `rider` (`CF`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `rider_zona_ibfk_2` FOREIGN KEY (`FK_IDzona`) REFERENCES `zona` (`IDzona`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `ristorante`
+-- Limiti per la tabella `ristorante`
 --
 ALTER TABLE `ristorante`
   ADD CONSTRAINT `ristorante_ibfk_1` FOREIGN KEY (`FK_IDcomune`) REFERENCES `comune` (`IDcomune`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `zona_comune`
+-- Limiti per la tabella `zona_comune`
 --
 ALTER TABLE `zona_comune`
   ADD CONSTRAINT `zona_comune_ibfk_1` FOREIGN KEY (`FK_IDzona`) REFERENCES `zona` (`IDzona`) ON DELETE CASCADE ON UPDATE CASCADE,
